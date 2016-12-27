@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { WeatherItemComponent } from './weather-item/weather-item.component';
 import { WeatherListComponent } from './weather-list/weather-list.component';
 import { WeatherSearchComponent } from './weather-search/weather-search.component';
+import { WeatherService } from './weather.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherItemComponent,
     WeatherListComponent,
-    WeatherSearchComponent
+    WeatherSearchComponent,
+    WeatherService
   ],
   imports: [
     BrowserModule,
@@ -21,6 +23,6 @@ import { WeatherSearchComponent } from './weather-search/weather-search.componen
     HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, WeatherService]
 })
 export class AppModule { }
