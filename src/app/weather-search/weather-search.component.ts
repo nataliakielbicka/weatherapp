@@ -7,7 +7,7 @@ import { WeatherItem } from '../weather-item/weather-item';
   selector: 'app-weather-search',
   templateUrl: './weather-search.component.html',
   styleUrls: ['./weather-search.component.css'],
-  //providers: [WeatherService]
+  providers: [WeatherService]
 })
 export class WeatherSearchComponent implements OnInit {
   
