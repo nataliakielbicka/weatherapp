@@ -17,21 +17,21 @@ export class WeatherService {
     return WEATHER_ITEMS;
   }
 
-  addWeatherItem(weatherItem: WeatherItem) {
-    WEATHER_ITEMS.push(weatherItem);
+  addWeatherItem(item: WeatherItem) {
+    WEATHER_ITEMS.push(item);
   }
 
   clearWeatherItems() {
     WEATHER_ITEMS.splice(0);
   }
 
-  searchWeatherData(cityName:string): Observable<any> {
-    return this._http.get('http://api.openweathermap.org/data/2.5/weather?q='+ cityName + '&APPID=55aacf12c2335b3c19ff77f231f68bab&units=metric')
+  searchWeatherData(city:string): Observable<any> {
+    return this._http.get('http://api.openweathermap.org/data/2.5/weather?q='+ city + '&APPID=55aacf12c2335b3c19ff77f231f68bab&units=metric')
     //For temperature in Celsius use units=metric, its not required
     .map(response => response.json())
     .catch(error => {
       console.error(error);
-      return Observable.throw(error.json());
+      return Observable.throw(error.json().error);
     })
   }
   

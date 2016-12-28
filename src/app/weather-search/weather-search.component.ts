@@ -17,22 +17,22 @@ export class WeatherSearchComponent implements OnInit {
   
   constructor(private _weatherService: WeatherService) { }
 
-  onSubmit(form: FormGroup) {
+  onSubmit() {
     
-          const weatherItem = new WeatherItem(this.data.name, this.data.weather[0].description, this.data.main.temp);
-          this._weatherService.addWeatherItem(weatherItem);
+          const newItem = new WeatherItem(this.data.name, this.data.weather[0].main, this.data.main.temp);
+          this._weatherService.addWeatherItem(newItem);
        
   }
 
-  onSearchLocation(cityName: string) {
+  onSearchLocation(value: string) {
     this.searchStream
-      .next(cityName);
+      .next(value);
   }
-  ngOnInit() {
+  ngOnInit():any {
     this.searchStream
       .debounceTime(300)
-      //.distinctUntilChanged()
-      .switchMap((input: string) => this._weatherService.searchWeatherData(input))
+      .distinctUntilChanged()
+      .switchMap((term: string) => this._weatherService.searchWeatherData(term))
       .subscribe(
         data => this.data = data
       );
