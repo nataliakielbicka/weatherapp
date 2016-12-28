@@ -1,9 +1,9 @@
-<article class="weather-element">
-  <div class="col-1">
-    <h3>{{ weatherItem.cityName }}</h3>
+<article class="alert alert-warning">
+  <div class="col-md-11">
+    <h3 class="alert-heading">{{ weatherItem.cityName }}</h3>
     <p class="info">{{ weatherItem.description }}</p>
   </div>
-  <div class="col-2">
-    <span class="temperature">{{ weatherItem.temperature }} &deg;C</span>
+  <div class="col-md-1">
+    <span class="tag tag-primary">{{ weatherItem.temperature }} &deg;C</span>
   </div>
 </article>
