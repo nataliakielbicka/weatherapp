@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { WeatherItemComponent } from './weather-item/weather-item.component';
 import { WeatherSearchComponent } from './weather-search/weather-search.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,5 @@ import { WeatherSearchComponent } from './weather-search/weather-search.componen
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Angular2 weatherApp will be here soon! :)';
+  
 }

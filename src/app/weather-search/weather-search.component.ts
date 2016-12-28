@@ -3,8 +3,6 @@ import { FormGroup } from '@angular/forms';
 import { WeatherService } from '../weather.service';
 import { WeatherItem } from '../weather-item/weather-item';
 import { Subject } from 'rxjs/Rx';
-//import 'rxjs/add/operator/distinct';
-//import "rxjs";
 
 @Component({
   selector: 'app-weather-search',
@@ -33,7 +31,7 @@ export class WeatherSearchComponent implements OnInit {
   ngOnInit() {
     this.searchStream
       .debounceTime(300)
-      .distinctUntilChanged()
+      //.distinctUntilChanged()
       .switchMap((input: string) => this._weatherService.searchWeatherData(input))
       .subscribe(
         data => this.data = data
