@@ -36,6 +36,11 @@ export class SidebarComponent implements OnInit {
     }
   }
 
+  onDeleteProfile(event: Event, profile: Profile) {
+    event.stopPropagation();
+    this._profileService.deleteProfile(profile);
+  }
+
   ngOnInit() {
     this.profiles = this._profileService.getProfiles();
   }

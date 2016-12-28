@@ -19,4 +19,8 @@ export class ProfileService {
     return this.profiles;
   }
 
+  deleteProfile(profile: Profile) {
+    this.profiles.splice(this.profiles.indexOf(profile), 1);
+  }
+
 }
