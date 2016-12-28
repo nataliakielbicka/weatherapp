@@ -21,6 +21,21 @@ export class SidebarComponent implements OnInit {
     })
     this._profileService.saveNewProfile(cities);
   }
+  
+  onLoadProfile(profile: Profile) {
+    this._weatherService.clearWeatherItems();
+    for (let i=0;i<profile.cities.length;i++) {
+      this._weatherService.searchWeatherData(profile.cities[i])
+        .retry()
+        .subscribe(
+          data => {
+            const weatherItem = new WeatherItem(data.name, data.weather[0].description, data.main.temp);
+            this._weatherService.addWeatherItem(weatherItem);
+          }
+        )
+    }
+  }
+
   ngOnInit() {
     this.profiles = this._profileService.getProfiles();
   }

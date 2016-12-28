@@ -5,7 +5,7 @@ import { Profile } from './profile';
 export class ProfileService {
 
   private profiles: Profile[] = [
-    new Profile('Default Profile', ['New York, London, Berlin'])
+    new Profile('Default Profile', ['New York', 'London', 'Berlin'])
   ];
   constructor() { }
 
